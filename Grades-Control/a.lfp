@@ -1,0 +1,15 @@
+Biologia_avanzada = {
+<"Marcos Perez";61>,
+<"Gabriela Marquez";71>,
+<"Adriana Santizo";81>,
+<"La Castrosa";91>,
+<"Archivaldo Andrews";41>,
+<"Erwin Vasquez";100>,
+<"Albert Einstein";99>,
+<"Pato Lucas";39>,
+<"Dario Gomez";50>,
+<"Scott McCall";10>,
+<"Daniel Riffert";20>,
+<"Fritzi";0>,
+<"Ericka Lemus";60>
+} AVG, REP, APR, DESC, ASC, MIN, MAX
