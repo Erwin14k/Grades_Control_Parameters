@@ -251,6 +251,18 @@ def upward():
         i+=1
     print("======================================")
 
+#Función que muestra las notas desordenada
+def messy_data():
+    global data
+    i=0
+    j=0
+    print("")
+    print ("=====Reporte Notas Desordenadas======")
+    print("===========Estudiante / Nota==========")
+    for k in range(len(data)):
+        print(data[i][j]+" :"+" "+str(data[i][j+1]))
+        i+=1
+
 #Función que muestra las notas de manera descendente
 def downward():
     i=0
@@ -381,6 +393,7 @@ def parameters_verificator():
     passed_counter()
     print("")
     print("los parametros para los reportes son: "+parameters)
+    messy_data()
     if parameters.count("ASC")>= 1:
         upward()
     else:
@@ -425,7 +438,7 @@ def html_verificator():
     global parameters
     print("")
     print("los parametros para los reportes HTML son: "+parameters)
-
+    messy_html()
     if parameters.count("ASC")>= 1:
         upward_html()
     else:
@@ -502,7 +515,55 @@ def upward_html():
     </body>
     </html>"""
     f.write(asc_html)
-    f.close()   
+    f.close()
+
+
+def messy_html():
+    
+    j=0
+    global data,course_name,apr_count,rep_count,lines
+    i=0
+    f = open('DESORDENADO.html','w')
+    mess_html ="""<html>
+    <head></head>
+    <body>
+    <center>
+    <h1>REPORTE DE NOTAS DESORDENADAS</h1>
+    </center>
+    <style type="text/css" media="all">
+    h1, h2 {display: inline;}
+    </style>
+    <h1> Curso: <h2 style="color:orange">"""+course_name+"""</h2> </h1>
+    <hr />
+    <center>
+    <table width="500" border="2" cellpadding="5" >
+    <tr>
+    <th>Estudiante</th>
+    <th>Nota Obtenida</th>
+    </tr>"""
+    for x in range(len(data)):
+        if data[i][1]>=61:
+            mess_html+="""
+            <tr>
+            <td bgcolor= "#1A86E2">"""+data[i][j]+"""</td>
+            <td bgcolor= "#1A86E2">"""+str(data[i][j+1])+"""</td>
+            </tr>"""
+            i+=1
+        else:
+            mess_html+="""
+            <tr>
+            <td bgcolor= "#F9441D">"""+data[i][j]+"""</td>
+            <td bgcolor= "#F9441D">"""+str(data[i][j+1])+"""</td>
+            </tr>"""
+            i+=1
+    
+    
+    mess_html+="""
+    </table>
+    </body>
+    </html>"""
+    f.write(mess_html)
+    f.close()  
 
 def downward_html():
     i=0
